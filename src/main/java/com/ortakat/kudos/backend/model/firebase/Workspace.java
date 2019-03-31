@@ -9,7 +9,7 @@ public class Workspace {
 
 
 	public static void main(String[] args) throws Exception {
-//		FirebaseClient.init(new File(ClassLoader.getSystemClassLoader().getResource("kudos-d0fb3-firebase-adminsdk-w80g7-701bc206f6.json").getFile()), "kudos-d0fb3");
+//		FirebaseClient.init(new File(ClassLoader.getSystemClassLoader().getResource("kudos-d0fb3-firestore-adminsdk-w80g7-701bc206f6.json").getFile()), "kudos-d0fb3");
 //		FirebaseClient.init();
 
 //		BaseObject hubs = new BaseObject("hubs").setKey("1hBnMrSjEVKyRnP8WCMj").read();

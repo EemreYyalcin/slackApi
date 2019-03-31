@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Grid implements MailServer {
 
 	@Override
-	public String sendMail(MailPost mailPost) throws Exception {
+	public String  sendMail(MailPost mailPost) throws Exception {
 		Mail mail = new Mail(new Email(mailPost.getFromMail()), mailPost.getSubject(), new Email(mailPost.getToMail()), new Content("text/plain", mailPost.getContent()));
 		String apiKey = System.getenv("API_KEY");
 		if (Objects.isNull(apiKey)) {

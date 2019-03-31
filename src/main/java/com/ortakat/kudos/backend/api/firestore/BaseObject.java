@@ -1,4 +1,4 @@
-package com.ortakat.kudos.backend.api.firebase;
+package com.ortakat.kudos.backend.api.firestore;
 
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import lombok.Data;
@@ -60,10 +60,16 @@ public class BaseObject {
 			return this;
 		}
 		Optional<QueryDocumentSnapshot> filterelement = allData.stream().filter(e -> e.getId().equals(key)).findFirst();
-		filterelement.orElseThrow(Exception::new);
+		if (!filterelement.isPresent()) {
+			return null;
+		}
 		inputs = filterelement.get().getData();
 		referencePath = filterelement.get().getReference().getPath() + "/";
 		return this;
+	}
+
+	public void delete(FirebaseService firebaseService) {
+		firebaseService.deleteData(collection, key);
 	}
 
 	public BaseObject getChildObject(String collection) {

@@ -47,9 +47,9 @@ public class SMTP implements MailServer {
 			message.setText(mailPost.getContent());
 			Transport.send(message);
 		} catch (MessagingException mex) {
-			throw new Exception("Message Not Send " + mex.getLocalizedMessage());
+			return "Fail";
 		}
-		return "Success Send";
+		return "Success";
 	}
 
 

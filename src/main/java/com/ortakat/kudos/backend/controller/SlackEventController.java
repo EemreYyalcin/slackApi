@@ -3,9 +3,9 @@ package com.ortakat.kudos.backend.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.cache.LoadingCache;
-import com.ortakat.kudos.backend.api.firebase.BaseObject;
-import com.ortakat.kudos.backend.api.firebase.FirebaseDbService;
-import com.ortakat.kudos.backend.api.firebase.FirebaseService;
+import com.ortakat.kudos.backend.api.firestore.BaseObject;
+import com.ortakat.kudos.backend.api.firestore.FirebaseDbService;
+import com.ortakat.kudos.backend.api.firestore.FirebaseService;
 import com.ortakat.kudos.backend.model.EventRequest;
 import com.ortakat.kudos.backend.util.Constrants;
 import lombok.RequiredArgsConstructor;

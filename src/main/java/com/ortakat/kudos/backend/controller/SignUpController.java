@@ -1,8 +1,8 @@
 package com.ortakat.kudos.backend.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ortakat.kudos.backend.api.firebase.BaseObject;
-import com.ortakat.kudos.backend.api.firebase.FirebaseService;
+import com.ortakat.kudos.backend.api.firestore.BaseObject;
+import com.ortakat.kudos.backend.api.firestore.FirebaseService;
 import com.ortakat.kudos.backend.model.security.Authorize;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

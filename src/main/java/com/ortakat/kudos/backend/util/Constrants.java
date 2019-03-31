@@ -9,6 +9,7 @@ public class Constrants {
 	public static String users = "users";
 	public static String slack_user_id = "slack_user_id";
 	public static String kudos = "kudos";
+	public static String emailCodes = "emailcodes";
 	public static String thanksText = "";
 
 }

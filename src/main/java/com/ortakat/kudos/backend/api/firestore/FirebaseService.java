@@ -1,4 +1,4 @@
-package com.ortakat.kudos.backend.api.firebase;
+package com.ortakat.kudos.backend.api.firestore;
 
 import com.google.api.core.ApiFuture;
 import com.google.auth.oauth2.GoogleCredentials;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.ExecutionException;
 
 @Service
 public class FirebaseService {
@@ -29,7 +28,7 @@ public class FirebaseService {
 
 	}
 
-	public void saveData(BaseObject baseObject) throws Exception {
+	void saveData(BaseObject baseObject) throws Exception {
 		if (Objects.isNull(baseObject)) {
 			return;
 		}
@@ -44,10 +43,14 @@ public class FirebaseService {
 
 	}
 
-	public List<QueryDocumentSnapshot> readData(String collection) throws Exception {
+	List<QueryDocumentSnapshot> readData(String collection) throws Exception {
 		ApiFuture<QuerySnapshot> querySnapshotApiFutures = firestoreDB.collection(collection).get();
 		QuerySnapshot querySnapshotApiFuture = querySnapshotApiFutures.get();
 		return querySnapshotApiFuture.getDocuments();
+	}
+
+	void deleteData(String collection, String key) {
+		firestoreDB.collection(collection).document(key).delete();
 	}
 
 

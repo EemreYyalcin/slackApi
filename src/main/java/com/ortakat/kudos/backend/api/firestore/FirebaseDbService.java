@@ -1,4 +1,4 @@
-package com.ortakat.kudos.backend.api.firebase;
+package com.ortakat.kudos.backend.api.firestore;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ortakat.kudos.backend.model.EventRequest;
@@ -138,6 +138,26 @@ public class FirebaseDbService {
 		);
 	}
 
+	public String emailTempCode(String email) throws Exception {
+		BaseObject emailCodes = null;
+		String randomValue;
+		do {
+			randomValue = "" + new Random().nextInt((99999 - 10000) + 1) + 10000;
+			emailCodes = BaseObject.getInstance(Constrants.emailCodes).setKey(randomValue).read(firebaseService);
+		} while (emailCodes != null);
+		emailCodes = BaseObject.getInstance(Constrants.emailCodes).setKey(randomValue);
+		emailCodes.addElement("email", email);
+		emailCodes.save(firebaseService);
+		return emailCodes.getKey();
+	}
+
+	public void timeoutEmailCode(String code) throws Exception {
+		BaseObject emailCodes = BaseObject.getInstance(Constrants.emailCodes).setKey(code).read(firebaseService);
+		if (Objects.isNull(emailCodes)) {
+			return;
+		}
+		emailCodes.delete(firebaseService);
+	}
 
 
 }

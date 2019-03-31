@@ -1,8 +1,8 @@
 package com.ortakat.kudos.backend.controller;
 
 import com.google.common.cache.LoadingCache;
-import com.ortakat.kudos.backend.api.firebase.BaseObject;
-import com.ortakat.kudos.backend.api.firebase.FirebaseService;
+import com.ortakat.kudos.backend.api.firestore.BaseObject;
+import com.ortakat.kudos.backend.api.firestore.FirebaseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
